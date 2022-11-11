@@ -14,7 +14,10 @@ class shell():
         if cmd == {}:cmd=self.cmd                  #if no args inputted, using class init args
         
         for x in cmd:                              #parsing args
-            subprocess.run([x,cmd[x]])    
+            if cmd[x] ==-1:
+                subprocess.run(x)
+            else:
+                subprocess.run([x,cmd[x]])    
 
 shell().mkfile('p.txt')
 shell().mkfile('example.py')
@@ -22,7 +25,7 @@ shell().mkfile('example.py')
 data = ['import time\n', 'time.sleep(90)\n', 'with open(\'created_out.txt\',\'w\'):pass']
 shell().fillfile('example.py', data, 'w')
 
-commands = {
-    'ls':'-a /'                                   #struct 'command':'args and target file'
+comands = {
+    'uname':-1,                                    #struct 'command':'args and target file'                                
 }
-shell().runshell(commands)
+shell().runshell(comands)
